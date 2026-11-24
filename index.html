@@ -22,8 +22,6 @@
       <p class="description">Plan your shopping and stay within your budget.</p>
       <section class="budget-section" id="budget">
         <div class="budget-card">
-          let userBudget =
-          Number(document.getElementById('budget-input').value);
           <p class="budget-label">MY BUDGET</p>
           <h2 id="total-budget">₦0.00</h2>
           <label for="budget-input">Set your budget</label>
@@ -145,7 +143,7 @@
             </table>
           </div>
           <div class="list-footer">
-            <button class="clear-button" type="button" id="clear-all">
+            <button class="clear-button" type="button" id="clear-all" onclick="clearAll()">
               Clear All
             </button>
             <div class="list-total">

@@ -89,5 +89,41 @@ document.getElementById('item-price').value = '';
 function deleteItem(index) {
     cart.splice(index, 1);
 
-    console.log(cart);
+    document.getElementById('display').innerHTML = '';
+
+    for (let index = 0; index < cart.length; index++) {
+        document.getElementById('display').innerHTML += `
+            <tr>
+                <td>${index + 1}</td>
+                <td>${cart[index][0]}</td>
+                <td>${cart[index][1]}</td>
+                <td>₦${cart[index][2]}</td>
+                <td>₦${cart[index][3]}</td>
+                <td>
+                    <button class="delete-button" onclick="deleteItem(${index})">Delete</button>
+                </td>
+            </tr>
+        `;
+    }
+
+    document.getElementById('item-count').innerHTML = cart.length + ' items';
+}
+
+
+function clearAll() {
+    cart.splice(0, cart.length);
+
+    document.getElementById('display').innerHTML = '';
+
+    document.getElementById('item-count').innerHTML = '0 items';
+
+    document.getElementById('total-spent').innerHTML = '₦0.00';
+
+    document.getElementById('shopping-total').innerHTML = '₦0.00';
+
+    document.getElementById('remaining-balance').innerHTML = '₦' + budget;
+
+    document.getElementById('budget-percentage').innerHTML = '0%';
+
+    document.getElementById('budget-progress').style.width = '0%';
 }
